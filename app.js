@@ -3,9 +3,11 @@ var Processor = require("./Processor");
 var Table = require("./Table");
 var HtmlParser = require("./HtmlParser");
 const { hrtime } = require("process");
+var Writer= require("./Writer")
 
 
 var leitor = new Reader();
+var escritor = new Writer();
 
 
 async function main(){
@@ -16,9 +18,7 @@ async function main(){
 
     var html = await HtmlParser.Parse(usuarios);
 
-    console.log(html)
-
-
+    escritor.Write("meuhatml.html", html);
 
 }
 
